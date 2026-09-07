@@ -1,0 +1,34 @@
+name: Capture current FaeController v1.0.2 assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-old-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download current v1.0.2 release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p old
+          gh release download v1.0.2 --repo "$GITHUB_REPOSITORY" --dir old \
+            --pattern 'FaeController-Installer-1.0.2-linux.run' \
+            --pattern 'FaeController-Installer-1.0.2-windows-x64.exe' \
+            --pattern 'FaeController-Installer-1.0.2-windows-arm64.exe'
+          sha256sum old/*
+      - name: Upload captured assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: current-v1.0.2-assets
+          path: old/*
+          if-no-files-found: error
+          retention-days: 1
