@@ -1,0 +1,1 @@
+Payload will be transferred in temporary staging chunks on the release-v102-staging branch and verified in GitHub Actions before publication.
