@@ -1,0 +1,1 @@
+Temporary deterministic reconstruction staging for the audited FaeController 1.0.2 installer correction. The payload itself is transferred through a temporary GitHub issue and verified against STAGING-ARCHIVE-SHA256.txt before publishing. Do not use these staging files as installer artifacts.
