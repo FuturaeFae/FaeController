@@ -1,0 +1,1 @@
+The payload comments are staged only after this marker. This file is not part of the installer payload.
