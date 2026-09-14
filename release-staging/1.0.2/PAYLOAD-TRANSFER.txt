@@ -1,0 +1,1 @@
+Payload transfer is performed through a temporary GitHub issue so the exact audited reconstruction archive can be SHA-256 verified before any public v1.0.2 release asset is replaced.
